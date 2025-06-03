@@ -1,2 +1,2 @@
-# zhuoooooojun.github.io
+# zhuoooooojun
 personal site

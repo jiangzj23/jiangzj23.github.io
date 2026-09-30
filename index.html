@@ -1,11 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>My Personal Website</title>
-</head>
-<body>
-  <h1>Hello! 👋</h1>
-  <p>Welcome to my personal website built with GitHub Pages!</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Zhuojun Jiang — research, publications, projects, and academic updates."
+    />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>Zhuojun Jiang</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="content.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="wordmark" href="#top" aria-label="Go to home">
+          <span class="wordmark-mark" aria-hidden="true">ZJ</span>
+          <span class="wordmark-name">Zhuojun Jiang</span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="sr-only">Toggle navigation</span><span></span
+          ><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#about">About</a><a href="#research">Research</a
+          ><a href="#publications">Publications</a>
+          <a href="#projects">Projects</a><a href="#contact">Contact</a>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle color theme"
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero container" id="about">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" id="profile-role">Researcher</p>
+          <h1>Ideas become clearer<br />when we can <em>see</em> them.</h1>
+          <p class="hero-intro" id="profile-bio"></p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research"
+              >Explore my work</a
+            >
+            <a class="button button-text" id="cv-link" href="#" hidden
+              >Download CV <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div
+            class="social-links"
+            id="social-links"
+            aria-label="Professional profiles"
+          ></div>
+        </div>
+        <div class="portrait-wrap reveal" aria-label="Profile portrait">
+          <div class="portrait-frame">
+            <img id="profile-image" alt="Portrait of Zhuojun Jiang" hidden />
+            <span
+              class="portrait-initials"
+              id="portrait-initials"
+              aria-hidden="true"
+              >ZJ</span
+            >
+          </div>
+          <div class="portrait-caption">
+            <span class="status-dot" aria-hidden="true"></span
+            ><span id="profile-location">Tempe, Arizona</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="research">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-number">01</p>
+            <div>
+              <p class="eyebrow">Research</p>
+              <h2>Questions I care about</h2>
+            </div>
+          </div>
+          <div class="interest-grid" id="interest-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="publications">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-number">02</p>
+            <div>
+              <p class="eyebrow">Publications</p>
+              <h2>Selected work</h2>
+            </div>
+          </div>
+          <div class="publication-list" id="publication-list"></div>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="projects">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-number">03</p>
+            <div>
+              <p class="eyebrow">Projects</p>
+              <h2>Research in practice</h2>
+            </div>
+          </div>
+          <div class="project-grid" id="project-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="container news-layout">
+          <div class="section-heading reveal">
+            <p class="section-number">04</p>
+            <div>
+              <p class="eyebrow">Updates</p>
+              <h2>Recent news</h2>
+            </div>
+          </div>
+          <ol class="news-list" id="news-list"></ol>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="container contact-inner reveal">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Interested in discussing<br />research or collaboration?</h2>
+          <a class="button button-light" id="email-link" href="#"
+            >Send an email</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="current-year"></span> Zhuojun Jiang</p>
+        <p>Designed and built with HTML, CSS &amp; JavaScript.</p>
+      </div>
+    </footer>
+  </body>
 </html>

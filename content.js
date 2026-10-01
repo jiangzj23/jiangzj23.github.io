@@ -8,7 +8,7 @@ const SITE_CONTENT = {
     bio: "I study how thoughtful visual and interactive systems can help people understand complex information. This website collects my research, publications, and ongoing projects.",
     email: "",
     cv: "",
-    image: "",
+    image: "assets/avatar/cactus-tint-circle.png",
   },
 
   links: [

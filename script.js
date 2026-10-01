@@ -22,7 +22,29 @@ function renderProfile() {
   const bio = $("#profile-bio");
   const location = $("#profile-location");
   const initials = $("#portrait-initials");
-  if (bio) bio.textContent = profile.bio;
+  if (bio) {
+    const firstLine = document.createElement("span");
+    firstLine.textContent = `${profile.bio.intro} `;
+
+    const labLink = document.createElement("a");
+    labLink.href = profile.bio.lab.url;
+    labLink.textContent = profile.bio.lab.label;
+    labLink.target = "_blank";
+    labLink.rel = "noreferrer";
+
+    const affiliation = document.createTextNode(` ${profile.bio.affiliation}`);
+    const before = document.createElement("span");
+    before.className = "bio-before";
+    before.textContent = profile.bio.before;
+
+    bio.replaceChildren(
+      firstLine,
+      labLink,
+      affiliation,
+      document.createElement("br"),
+      before,
+    );
+  }
   if (location) location.textContent = profile.location;
   if (initials) initials.textContent = profile.initials;
 

@@ -4,7 +4,16 @@ const SITE_CONTENT = {
     name: "Zhuojun Jiang",
     initials: "ZJ",
     location: "Tempe, Arizona",
-    bio: "I study how thoughtful visual and interactive systems can help people understand complex information. This website collects my research, publications, and ongoing projects.",
+    bio: {
+      intro: "A PhD student in Computer Science,",
+      lab: {
+        label: "SVL",
+        url: "https://svl-at-asu.github.io/",
+      },
+      affiliation: "@ ASU.",
+      before:
+        "Before this, I majored in Industrial Engineering & Mechanical Engineering (Ergonomics & HCI). I study how thoughtful visual and interactive systems can help people understand complex information.",
+    },
     email: "",
     cv: "",
     image: "assets/avatar/cactus-tint-circle.png",

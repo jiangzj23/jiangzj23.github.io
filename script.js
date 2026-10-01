@@ -159,6 +159,39 @@ function renderNews() {
     .join("");
 }
 
+function renderLife() {
+  const grid = $("#life-grid");
+  if (!grid) return;
+  if (!SITE_CONTENT.life.length) {
+    grid.innerHTML =
+      '<p class="empty-state life-empty">Life notes, photos, and wandering thoughts will live here.</p>';
+    return;
+  }
+
+  grid.innerHTML = SITE_CONTENT.life
+    .map((item) => {
+      const imageUrl = safeUrl(item.image);
+      const itemUrl = safeUrl(item.url);
+      const image = imageUrl
+        ? `<div class="life-card-image"><img src="${escapeHtml(imageUrl)}" alt="" loading="lazy" /></div>`
+        : "";
+      const link = itemUrl
+        ? `<a class="life-card-link" href="${escapeHtml(itemUrl)}" target="_blank" rel="noreferrer">Read more ↗</a>`
+        : "";
+      return `
+        <article class="life-card">
+          ${image}
+          <div class="life-card-content">
+            <div class="life-card-meta"><span>${escapeHtml(item.type || "Note")}</span><time>${escapeHtml(item.date || "")}</time></div>
+            <h2>${escapeHtml(item.title)}</h2>
+            <p>${escapeHtml(item.text)}</p>
+            ${link}
+          </div>
+        </article>`;
+    })
+    .join("");
+}
+
 function setupNavigation() {
   const menuButton = $(".menu-toggle");
   const navigation = $("#site-nav");
@@ -190,6 +223,7 @@ renderInterests();
 renderPublications();
 renderProjects();
 renderNews();
+renderLife();
 setupNavigation();
 setupTheme();
 document.querySelectorAll(".current-year").forEach((element) => {

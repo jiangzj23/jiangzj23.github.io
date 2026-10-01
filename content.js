@@ -62,4 +62,16 @@ const SITE_CONTENT = {
   news: [
     // { date: "Sep 2026", text: "A short research or career update." },
   ],
+
+  // Life can contain personal notes, photos, observations, or unfinished thoughts.
+  life: [
+    // {
+    //   type: "Thought",
+    //   date: "Oct 2026",
+    //   title: "A small thought worth keeping",
+    //   text: "Write a short reflection, observation, or story here.",
+    //   image: "", // Example: "assets/life/photo.jpg"
+    //   url: "", // Optional link to a longer post or photo album
+    // },
+  ],
 };

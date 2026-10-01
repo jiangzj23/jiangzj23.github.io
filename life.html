@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contact Zhuojun Jiang." />
-    <title>Contact · Zhuojun Jiang</title>
+    <meta
+      name="description"
+      content="Life, observations, and notes from Zhuojun Jiang."
+    />
+    <title>Life · Zhuojun Jiang</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body class="contact-page-body">
+  <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header contact-header">
+    <header class="site-header">
       <div class="container nav-wrap">
         <a class="wordmark" href="index.html"
           ><img
@@ -29,10 +32,9 @@
           ><span></span>
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-          <a href="index.html">About</a><a href="research.html">Research</a
-          ><a href="publications.html">Publications</a>
-          <a href="projects.html">Projects</a><a href="updates.html">Updates</a
-          ><a href="contact.html" aria-current="page">Contact</a>
+          <a href="index.html">About</a><a href="work.html">Work</a>
+          <a href="life.html" aria-current="page">Life</a
+          ><a href="connect.html">Connect</a>
           <button
             class="theme-toggle"
             type="button"
@@ -43,23 +45,26 @@
         </nav>
       </div>
     </header>
-    <main class="contact-page" id="main-content">
-      <section class="container contact-page-inner reveal">
-        <p class="eyebrow">05 · Get in touch</p>
-        <h1>Interested in discussing<br />research or collaboration?</h1>
-        <p>
-          I am always glad to hear about thoughtful questions, new ideas, and
-          opportunities to collaborate.
-        </p>
-        <a class="button button-light" id="email-link" href="#"
-          >Send an email</a
-        >
-        <div
-          class="social-links contact-socials"
-          id="social-links"
-          aria-label="Professional profiles"
-        ></div>
+
+    <main class="single-page-main page-tinted" id="main-content">
+      <section class="page-section container life-page">
+        <header class="page-heading reveal">
+          <p class="page-kicker">Life</p>
+          <h1>Beyond research.</h1>
+          <p>
+            A place for everyday moments, things I notice, and ideas that do not
+            need to become a paper.
+          </p>
+        </header>
+        <div class="life-grid" id="life-grid"></div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span class="current-year"></span> Zhuojun Jiang</p>
+        <a href="connect.html">Next: Connect →</a>
+      </div>
+    </footer>
   </body>
 </html>

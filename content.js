@@ -10,19 +10,31 @@ const SITE_CONTENT = {
         label: "SVL",
         url: "https://svl-at-asu.github.io/",
       },
-      affiliation: "@ ASU.",
+      affiliation: "@ Arizona State University.",
       before:
-        "Before this, I majored in Industrial Engineering & Mechanical Engineering (Ergonomics & HCI). I study how thoughtful visual and interactive systems can help people understand complex information.",
+        "Before this, I majored in Industrial Engineering & Mechanical Engineering (Ergonomics & HCI). I study how human judgment, creativity, and AI interact in data visualization.",
     },
-    email: "",
+    email: "zjian115@asu.edu",
     cv: "",
     image: "assets/avatar/cactus-tint-circle.png",
   },
 
   links: [
-    { label: "GitHub", url: "https://github.com/jiangzj23" },
-    // { label: "Google Scholar", url: "https://scholar.google.com/..." },
-    // { label: "LinkedIn", url: "https://www.linkedin.com/in/..." },
+    {
+      label: "Google Scholar",
+      url: "https://scholar.google.com/scholar?q=author%3A%22Zhuojun+Jiang%22",
+      icon: "assets/logo/icon-scholar.png",
+    },
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/zhuojun-jiang-394127294",
+      icon: "assets/logo/icon-linkedin.png",
+    },
+    {
+      label: "Gmail",
+      url: "mailto:zjian115@asu.edu",
+      icon: "assets/logo/icon-gmail.png",
+    },
   ],
 
   interests: [

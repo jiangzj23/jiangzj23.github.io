@@ -78,8 +78,13 @@ function renderProfile() {
     socialLinks.innerHTML = links
       .filter((link) => safeUrl(link.url))
       .map(
-        (link) =>
-          `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)} ↗</a>`,
+        (link) => {
+          const url = safeUrl(link.url);
+          const externalAttributes = url.startsWith("mailto:")
+            ? ""
+            : ' target="_blank" rel="noreferrer"';
+          return `<a href="${escapeHtml(url)}"${externalAttributes} aria-label="${escapeHtml(link.label)}" title="${escapeHtml(link.label)}"><img src="${escapeHtml(safeUrl(link.icon))}" alt="" /></a>`;
+        },
       )
       .join("");
   }

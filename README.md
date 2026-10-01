@@ -14,7 +14,8 @@ No Ruby, Jekyll, Docker, or npm installation is required.
 ## Editing content
 
 - Personal information, links, publications, projects, and news: `content.js`
-- Page structure and section order: `index.html`
+- Home page: `index.html`
+- Separate sections: `research.html`, `publications.html`, `projects.html`, `updates.html`, and `contact.html`
 - Colors, typography, spacing, and responsive layout: `styles.css`
 - Theme toggle, navigation, and content rendering: `script.js`
 

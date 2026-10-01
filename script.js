@@ -19,52 +19,64 @@ function safeUrl(value) {
 
 function renderProfile() {
   const { profile, links } = SITE_CONTENT;
-  document.title = profile.name;
-  $(".wordmark-name").textContent = profile.name;
-  $("#profile-role").textContent = profile.role;
-  $("#profile-bio").textContent = profile.bio;
-  $("#profile-location").textContent = profile.location;
-  $("#portrait-initials").textContent = profile.initials;
+  const wordmarkName = $(".wordmark-name");
+  if (wordmarkName) wordmarkName.textContent = profile.name;
 
+  const role = $("#profile-role");
+  const bio = $("#profile-bio");
+  const location = $("#profile-location");
+  const initials = $("#portrait-initials");
+  if (role) role.textContent = profile.role;
+  if (bio) bio.textContent = profile.bio;
+  if (location) location.textContent = profile.location;
+  if (initials) initials.textContent = profile.initials;
+
+  const image = $("#profile-image");
   const imageUrl = safeUrl(profile.image);
-  if (imageUrl) {
-    const image = $("#profile-image");
+  if (image && imageUrl) {
     image.src = imageUrl;
     image.hidden = false;
-    $("#portrait-initials").hidden = true;
+    if (initials) initials.hidden = true;
   }
 
+  const cvLink = $("#cv-link");
   const cvUrl = safeUrl(profile.cv);
-  if (cvUrl) {
-    const cvLink = $("#cv-link");
+  if (cvLink && cvUrl) {
     cvLink.href = cvUrl;
     cvLink.hidden = false;
   }
 
   const emailLink = $("#email-link");
-  if (profile.email) {
-    emailLink.href = `mailto:${profile.email}`;
-  } else {
-    emailLink.textContent = "Add email in content.js";
-    emailLink.removeAttribute("href");
+  if (emailLink) {
+    if (profile.email) {
+      emailLink.href = `mailto:${profile.email}`;
+    } else {
+      emailLink.textContent = "Add email in content.js";
+      emailLink.removeAttribute("href");
+    }
   }
 
-  $("#social-links").innerHTML = links
-    .filter((link) => safeUrl(link.url))
-    .map(
-      (link) =>
-        `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)} ↗</a>`,
-    )
-    .join("");
+  const socialLinks = $("#social-links");
+  if (socialLinks) {
+    socialLinks.innerHTML = links
+      .filter((link) => safeUrl(link.url))
+      .map(
+        (link) =>
+          `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)} ↗</a>`,
+      )
+      .join("");
+  }
 }
 
 function renderInterests() {
-  $("#interest-grid").innerHTML = SITE_CONTENT.interests
+  const grid = $("#interest-grid");
+  if (!grid) return;
+  grid.innerHTML = SITE_CONTENT.interests
     .map(
       (interest, index) => `
         <article class="interest-card reveal">
           <span class="interest-index">0${index + 1}</span>
-          <h3>${escapeHtml(interest.title)}</h3>
+          <h2>${escapeHtml(interest.title)}</h2>
           <p>${escapeHtml(interest.description)}</p>
         </article>`,
     )
@@ -73,6 +85,7 @@ function renderInterests() {
 
 function renderPublications() {
   const list = $("#publication-list");
+  if (!list) return;
   if (!SITE_CONTENT.publications.length) {
     list.innerHTML =
       '<p class="empty-state reveal">Publications will be added here.</p>';
@@ -88,12 +101,11 @@ function renderPublications() {
             `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
         )
         .join("");
-
       return `
         <article class="publication-item reveal">
           <span class="publication-year">${escapeHtml(publication.year)}</span>
           <div>
-            <h3>${escapeHtml(publication.title)}</h3>
+            <h2>${escapeHtml(publication.title)}</h2>
             <p class="publication-meta">${escapeHtml(publication.authors)} · <em>${escapeHtml(publication.venue)}</em></p>
           </div>
           <div class="publication-links">${links}</div>
@@ -104,6 +116,7 @@ function renderPublications() {
 
 function renderProjects() {
   const grid = $("#project-grid");
+  if (!grid) return;
   if (!SITE_CONTENT.projects.length) {
     grid.innerHTML =
       '<p class="empty-state reveal">Research projects will be added here.</p>';
@@ -122,7 +135,7 @@ function renderProjects() {
       return `
         <article class="project-card reveal">
           <div class="project-topline"><span class="project-symbol">✦</span>${link}</div>
-          <h3>${escapeHtml(project.title)}</h3>
+          <h2>${escapeHtml(project.title)}</h2>
           <p>${escapeHtml(project.description)}</p>
           <div class="project-tags">${tags}</div>
         </article>`;
@@ -132,6 +145,7 @@ function renderProjects() {
 
 function renderNews() {
   const list = $("#news-list");
+  if (!list) return;
   if (!SITE_CONTENT.news.length) {
     list.innerHTML =
       '<li class="empty-state reveal">Updates will be added here.</li>';
@@ -151,20 +165,12 @@ function renderNews() {
 function setupNavigation() {
   const menuButton = $(".menu-toggle");
   const navigation = $("#site-nav");
+  if (!menuButton || !navigation) return;
   menuButton.addEventListener("click", () => {
     const isOpen = menuButton.getAttribute("aria-expanded") === "true";
     menuButton.setAttribute("aria-expanded", String(!isOpen));
     navigation.classList.toggle("open", !isOpen);
   });
-  navigation.addEventListener("click", (event) => {
-    if (event.target.matches("a")) {
-      menuButton.setAttribute("aria-expanded", "false");
-      navigation.classList.remove("open");
-    }
-  });
-  window.addEventListener("scroll", () =>
-    $(".site-header").classList.toggle("scrolled", window.scrollY > 12),
-  );
 }
 
 function setupTheme() {
@@ -172,29 +178,14 @@ function setupTheme() {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   document.documentElement.dataset.theme =
     savedTheme || (prefersDark ? "dark" : "light");
-  $(".theme-toggle").addEventListener("click", () => {
+  const themeToggle = $(".theme-toggle");
+  if (!themeToggle) return;
+  themeToggle.addEventListener("click", () => {
     const nextTheme =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = nextTheme;
     localStorage.setItem("theme", nextTheme);
   });
-}
-
-function setupReveal() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08 },
-  );
-  document
-    .querySelectorAll(".reveal")
-    .forEach((element) => observer.observe(element));
 }
 
 renderProfile();
@@ -204,5 +195,6 @@ renderProjects();
 renderNews();
 setupNavigation();
 setupTheme();
-setupReveal();
-$("#current-year").textContent = new Date().getFullYear();
+document.querySelectorAll(".current-year").forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});

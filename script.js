@@ -19,9 +19,6 @@ function safeUrl(value) {
 
 function renderProfile() {
   const { profile, links } = SITE_CONTENT;
-  const wordmarkName = $(".wordmark-name");
-  if (wordmarkName) wordmarkName.textContent = profile.name;
-
   const role = $("#profile-role");
   const bio = $("#profile-bio");
   const location = $("#profile-location");

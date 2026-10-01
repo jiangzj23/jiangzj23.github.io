@@ -3,7 +3,6 @@ const SITE_CONTENT = {
   profile: {
     name: "Zhuojun Jiang",
     initials: "ZJ",
-    role: "Computer Science Researcher · Arizona State University",
     location: "Tempe, Arizona",
     bio: "I study how thoughtful visual and interactive systems can help people understand complex information. This website collects my research, publications, and ongoing projects.",
     email: "",

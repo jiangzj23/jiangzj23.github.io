@@ -19,11 +19,9 @@ function safeUrl(value) {
 
 function renderProfile() {
   const { profile, links } = SITE_CONTENT;
-  const role = $("#profile-role");
   const bio = $("#profile-bio");
   const location = $("#profile-location");
   const initials = $("#portrait-initials");
-  if (role) role.textContent = profile.role;
   if (bio) bio.textContent = profile.bio;
   if (location) location.textContent = profile.location;
   if (initials) initials.textContent = profile.initials;

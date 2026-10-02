@@ -80,7 +80,10 @@ const SITE_CONTENT = {
   ],
 
   news: [
-    // { date: "Sep 2026", text: "A short research or career update." },
+    {
+      date: "Jul 17, 2026",
+      text: "Thrilled to share that two papers have been accepted to IEEE VIS 2026. Looking forward to seeing everyone in Boston!",
+    },
   ],
 
   // Life can contain personal notes, photos, observations, or unfinished thoughts.

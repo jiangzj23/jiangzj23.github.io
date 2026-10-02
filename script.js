@@ -187,7 +187,11 @@ function renderNews() {
             }
             return `${index > 0 ? ", " : ""}${name}`;
           });
-          return `<li>${authors.join("")}. <cite>${escapeHtml(paper.title)}</cite>.</li>`;
+          return `
+            <li>
+              <span class="news-paper-title">${escapeHtml(paper.title)}</span>
+              <span class="news-paper-authors">${authors.join("")}</span>
+            </li>`;
         })
         .join("");
       const paperList = papers

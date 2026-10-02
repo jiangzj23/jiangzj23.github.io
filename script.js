@@ -100,7 +100,22 @@ function renderPublications() {
   }
 
   list.innerHTML = SITE_CONTENT.publications
-    .map((publication) => {
+    .map((publication, index) => {
+      const authors = publication.authors
+        .map((author, authorIndex) => {
+          const name =
+            author === SITE_CONTENT.profile.name
+              ? `<strong class="publication-self">${escapeHtml(author)}</strong>`
+              : escapeHtml(author);
+          if (
+            authorIndex === publication.authors.length - 1 &&
+            authorIndex > 0
+          ) {
+            return `${publication.authors.length > 2 ? "," : ""} and ${name}`;
+          }
+          return `${authorIndex > 0 ? ", " : ""}${name}`;
+        })
+        .join("");
       const links = (publication.links || [])
         .filter((link) => safeUrl(link.url))
         .map(
@@ -108,17 +123,40 @@ function renderPublications() {
             `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
         )
         .join("");
+      const abstractId = `publication-abstract-${index}`;
+      const abstractButton = publication.abstract
+        ? `<button class="publication-abstract-toggle" type="button" aria-expanded="false" aria-controls="${abstractId}">+ Abstract</button>`
+        : "";
+      const abstract = publication.abstract
+        ? `<div class="publication-abstract" id="${abstractId}" hidden><p>${escapeHtml(publication.abstract)}</p></div>`
+        : "";
+      const award = publication.award
+        ? `<p class="publication-award">${escapeHtml(publication.award)}</p>`
+        : "";
       return `
         <article class="publication-item reveal">
           <span class="publication-year">${escapeHtml(publication.year)}</span>
-          <div>
+          <div class="publication-main">
             <h2>${escapeHtml(publication.title)}</h2>
-            <p class="publication-meta">${escapeHtml(publication.authors)} · <em>${escapeHtml(publication.venue)}</em></p>
+            <p class="publication-authors">${authors}</p>
+            <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em>, ${escapeHtml(publication.year)}.</p>
+            ${award}
+            <div class="publication-links">${abstractButton}${links}</div>
+            ${abstract}
           </div>
-          <div class="publication-links">${links}</div>
         </article>`;
     })
     .join("");
+
+  list.querySelectorAll(".publication-abstract-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      const panel = document.getElementById(button.getAttribute("aria-controls"));
+      button.setAttribute("aria-expanded", String(!isOpen));
+      button.textContent = isOpen ? "+ Abstract" : "− Abstract";
+      if (panel) panel.hidden = isOpen;
+    });
+  });
 }
 
 function renderProjects() {

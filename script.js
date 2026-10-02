@@ -90,6 +90,35 @@ function renderProfile() {
   }
 }
 
+function renderPublicationMedia(publication) {
+  const media = publication.media || {};
+  const type = String(media.type || "").toLowerCase();
+  const src = safeUrl(media.src);
+  const url = safeUrl(media.url);
+  const poster = safeUrl(media.poster);
+  const alt = escapeHtml(media.alt || `${publication.title} media`);
+
+  if (type === "video" && src) {
+    const posterAttribute = poster
+      ? ` poster="${escapeHtml(poster)}"`
+      : "";
+    return `<video controls preload="metadata"${posterAttribute} aria-label="${alt}"><source src="${escapeHtml(src)}" /></video>`;
+  }
+
+  if (["teaser", "image", "slides"].includes(type) && src) {
+    const image = `<img src="${escapeHtml(src)}" alt="${alt}" loading="lazy" />`;
+    return url
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${image}</a>`
+      : image;
+  }
+
+  if (type === "slides" && url) {
+    return `<a class="publication-media-placeholder" href="${escapeHtml(url)}" target="_blank" rel="noreferrer"><span>View slides</span></a>`;
+  }
+
+  return '<div class="publication-media-placeholder"><span>Teaser / Video / Slides</span></div>';
+}
+
 function renderPublications() {
   const list = $("#publication-list");
   if (!list) return;
@@ -133,13 +162,14 @@ function renderPublications() {
       const award = publication.award
         ? `<p class="publication-award">${escapeHtml(publication.award)}</p>`
         : "";
+      const media = renderPublicationMedia(publication);
       return `
         <article class="publication-item reveal">
-          <span class="publication-year">${escapeHtml(publication.year)}</span>
+          <figure class="publication-media">${media}</figure>
           <div class="publication-main">
             <h2>${escapeHtml(publication.title)}</h2>
             <p class="publication-authors">${authors}</p>
-            <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em>, ${escapeHtml(publication.year)}.</p>
+            <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em></p>
             ${award}
             <div class="publication-links">${abstractButton}${links}</div>
             ${abstract}

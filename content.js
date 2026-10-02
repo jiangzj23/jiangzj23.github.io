@@ -55,6 +55,10 @@ const SITE_CONTENT = {
     },
   ],
 
+  // Optional media for each publication:
+  // media: { type: "teaser", src: "assets/publications/teaser.png", alt: "...", url: "" }
+  // media: { type: "video", src: "assets/publications/video.mp4", poster: "assets/publications/poster.png" }
+  // media: { type: "slides", src: "assets/publications/slides-cover.png", alt: "...", url: "https://..." }
   publications: [
     {
       year: "2026",

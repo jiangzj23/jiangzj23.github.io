@@ -22,12 +22,12 @@ const SITE_CONTENT = {
   links: [
     {
       label: "Google Scholar",
-      url: "https://scholar.google.com/scholar?q=author%3A%22Zhuojun+Jiang%22",
+      url: "https://scholar.google.com/citations?user=SpWGkEIAAAAJ&hl=en&oi=ao",
       icon: "assets/logo/icon-scholar.png",
     },
     {
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/zhuojun-jiang-394127294",
+      url: "https://www.linkedin.com/in/zhuojun-jiang-394127294/?isSelfProfile=true",
       icon: "assets/logo/icon-linkedin.png",
     },
     {

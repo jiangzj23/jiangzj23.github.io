@@ -217,7 +217,8 @@ a {
   text-transform: uppercase;
 }
 .work-hero {
-  padding-block: clamp(80px, 11vw, 145px);
+  padding-top: clamp(80px, 11vw, 145px);
+  padding-bottom: clamp(36px, 5vw, 64px);
 }
 .work-hero h1 {
   margin-bottom: 28px;
@@ -251,10 +252,16 @@ a {
 .work-section {
   padding-block: clamp(80px, 10vw, 130px);
 }
+#publications.work-section {
+  padding-top: clamp(36px, 5vw, 64px);
+}
 .work-section-heading {
   display: grid;
   grid-template-columns: 72px 1fr;
   margin-bottom: 56px;
+}
+.work-section-heading .eyebrow {
+  margin-bottom: 0;
 }
 .home-updates {
   padding-block: clamp(70px, 9vw, 110px);

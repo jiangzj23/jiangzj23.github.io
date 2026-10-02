@@ -82,7 +82,24 @@ const SITE_CONTENT = {
   news: [
     {
       date: "Jul 17, 2026",
-      text: "Thrilled to share that two papers have been accepted to IEEE VIS 2026. Looking forward to seeing everyone in Boston!",
+      text: "Two papers accepted to IEEE VIS 2026. Looking forward to seeing everyone in Boston!",
+      papers: [
+        {
+          authors: ["Zhuojun Jiang", "Yuki Ueno", "Chris Bryan"],
+          title:
+            "Harnessing LLMs Without Surrendering Control: Delegation Boundaries in Visual Data Storytelling Authoring",
+        },
+        {
+          authors: [
+            "Yuki Ueno",
+            "Bretho Danzy",
+            "Zhuojun Jiang",
+            "Chris Bryan",
+          ],
+          title:
+            "VisCanvas: A Node-based Interface for Exploratory Visualization Authoring with LLMs",
+        },
+      ],
     },
   ],
 

@@ -174,13 +174,34 @@ function renderNews() {
     return;
   }
   list.innerHTML = SITE_CONTENT.news
-    .map(
-      (item) => `
+    .map((item) => {
+      const papers = (item.papers || [])
+        .map((paper) => {
+          const authors = paper.authors.map((author, index) => {
+            const name =
+              author === SITE_CONTENT.profile.name
+                ? `<strong>${escapeHtml(author)}</strong>`
+                : escapeHtml(author);
+            if (index === paper.authors.length - 1 && index > 0) {
+              return `${paper.authors.length > 2 ? "," : ""} and ${name}`;
+            }
+            return `${index > 0 ? ", " : ""}${name}`;
+          });
+          return `<li>${authors.join("")}. <cite>${escapeHtml(paper.title)}</cite>.</li>`;
+        })
+        .join("");
+      const paperList = papers
+        ? `<ol class="news-papers">${papers}</ol>`
+        : "";
+      return `
         <li class="news-item reveal">
           <time class="news-date">${escapeHtml(item.date)}</time>
-          <p>${escapeHtml(item.text)}</p>
-        </li>`,
-    )
+          <div class="news-content">
+            <p>${escapeHtml(item.text)}</p>
+            ${paperList}
+          </div>
+        </li>`;
+    })
     .join("");
 }
 

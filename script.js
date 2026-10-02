@@ -180,7 +180,7 @@ function renderNews() {
           const authors = paper.authors.map((author, index) => {
             const name =
               author === SITE_CONTENT.profile.name
-                ? `<strong>${escapeHtml(author)}</strong>`
+                ? `<span class="news-paper-self">${escapeHtml(author)}</span>`
                 : escapeHtml(author);
             if (index === paper.authors.length - 1 && index > 0) {
               return `${paper.authors.length > 2 ? "," : ""} and ${name}`;

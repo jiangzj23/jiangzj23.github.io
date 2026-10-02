@@ -47,7 +47,6 @@ body {
 }
 body,
 .site-header,
-.interest-card,
 .project-card,
 .publication-item {
   transition:
@@ -442,33 +441,12 @@ h2 {
   font-family: var(--serif);
   font-size: 0.9rem;
 }
-.interest-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.interest-card {
-  min-height: 290px;
-  padding: 32px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-.interest-index {
-  display: block;
-  margin-bottom: 76px;
-  color: var(--accent);
-  font-family: var(--serif);
-  font-size: 1.6rem;
-}
-.interest-card h2,
 .project-card h2 {
   margin-bottom: 12px;
   font-family: var(--sans);
   font-size: 1.5rem;
   font-weight: 500;
 }
-.interest-card p,
 .project-card p {
   margin-bottom: 0;
   color: var(--muted);
@@ -816,15 +794,6 @@ h2 {
   .portrait-wrap {
     justify-self: start;
     width: min(82%, 370px);
-  }
-  .interest-grid {
-    grid-template-columns: 1fr;
-  }
-  .interest-card {
-    min-height: auto;
-  }
-  .interest-index {
-    margin-bottom: 36px;
   }
   .publication-item {
     grid-template-columns: 70px 1fr;

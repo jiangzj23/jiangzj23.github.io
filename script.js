@@ -90,21 +90,6 @@ function renderProfile() {
   }
 }
 
-function renderInterests() {
-  const grid = $("#interest-grid");
-  if (!grid) return;
-  grid.innerHTML = SITE_CONTENT.interests
-    .map(
-      (interest, index) => `
-        <article class="interest-card reveal">
-          <span class="interest-index">0${index + 1}</span>
-          <h2>${escapeHtml(interest.title)}</h2>
-          <p>${escapeHtml(interest.description)}</p>
-        </article>`,
-    )
-    .join("");
-}
-
 function renderPublications() {
   const list = $("#publication-list");
   if (!list) return;
@@ -269,7 +254,6 @@ function setupTheme() {
 }
 
 renderProfile();
-renderInterests();
 renderPublications();
 renderProjects();
 renderNews();

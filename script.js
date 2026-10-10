@@ -122,7 +122,33 @@ function renderPublicationMedia(publication) {
 function renderRecentWork() {
   const list = $("#home-work-list");
   if (!list) return;
-  renderPublicationList(list, SITE_CONTENT.publications.slice(0, 2), "selected", "h3");
+  list.innerHTML = SITE_CONTENT.publications.slice(0, 3)
+    .map((publication) => {
+      const authors = publication.authors.map((author) =>
+        author === SITE_CONTENT.profile.name
+          ? `<strong>${escapeHtml(author)}</strong>`
+          : escapeHtml(author),
+      ).join(", ");
+      const paper = (publication.links || []).find((link) =>
+        link.label.toLowerCase() === "pdf" && safeUrl(link.url),
+      ) || (publication.links || []).find((link) => safeUrl(link.url));
+      const paperLink = paper
+        ? `<a class="selected-paper-link" href="${escapeHtml(safeUrl(paper.url))}" target="_blank" rel="noopener noreferrer">${paper.label.toLowerCase() === "pdf" ? "PDF" : "Paper"} ↗</a>`
+        : "";
+      return `
+        <article class="selected-publication">
+          <figure class="publication-media selected-media">
+            ${renderPublicationMedia(publication)}
+            <span class="selected-conference">${escapeHtml(publication.venue)} ${escapeHtml(publication.year)}</span>
+          </figure>
+          <div class="selected-publication-main">
+            <h3>${escapeHtml(publication.title)}</h3>
+            <p class="selected-authors">${authors}</p>
+            ${paperLink}
+          </div>
+        </article>`;
+    })
+    .join("");
 }
 
 function renderPublications() {

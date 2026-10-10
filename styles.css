@@ -639,7 +639,7 @@ h2 {
 }
 .news-date {
   color: var(--muted);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 0.9rem;
 }
 .news-item p {
@@ -1040,7 +1040,7 @@ h2 {
   font-size: 0.85rem;
 }
 .home-page .home-updates {
-  padding-block: 24px 0;
+  padding-block: 24px 28px;
   border-top: 1px solid var(--line);
   background: transparent;
 }

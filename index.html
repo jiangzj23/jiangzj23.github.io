@@ -19,7 +19,7 @@
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container nav-wrap">
@@ -61,9 +61,6 @@
           <h1>Hi, I’m <em>Zhuojun</em></h1>
           <p class="hero-intro" id="profile-bio"></p>
           <div class="hero-actions">
-            <a class="button button-primary" href="work.html"
-              >Explore my work</a
-            >
             <a class="button button-text" id="cv-link" href="#" hidden
               >CV <span aria-hidden="true">↗</span></a
             >
@@ -91,11 +88,18 @@
         </div>
       </section>
 
-      <section class="home-updates">
+      <section class="home-recent-work container" aria-labelledby="recent-work-heading">
+        <header class="home-section-heading">
+          <h2 id="recent-work-heading">Recent Work</h2>
+          <a href="work.html">All work →</a>
+        </header>
+        <div class="home-work-list" id="home-work-list"></div>
+      </section>
+
+      <section class="home-updates" aria-labelledby="updates-heading">
         <div class="container home-updates-layout">
           <header class="home-updates-heading">
-            <p class="page-kicker">Updates</p>
-            <h2>What’s new</h2>
+            <h2 id="updates-heading">Updates</h2>
           </header>
           <ol class="news-list" id="news-list"></ol>
         </div>

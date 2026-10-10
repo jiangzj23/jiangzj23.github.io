@@ -5,14 +5,14 @@ const SITE_CONTENT = {
     initials: "ZJ",
     location: "Tempe, Arizona",
     bio: {
-      intro: "A PhD student in Computer Science,",
+      intro: "I’m a Computer Science PhD student at",
       lab: {
         label: "SVL",
         url: "https://svl-at-asu.github.io/",
       },
-      affiliation: "@ Arizona State University.",
+      affiliation: "at Arizona State University.",
       before:
-        "Before this, I majored in Industrial Engineering & Mechanical Engineering (Ergonomics & HCI). I study how human judgment, creativity, and AI interact in data visualization.",
+        "I study how human judgment, creativity, and AI interact in data visualization. My background is in industrial and mechanical engineering, with a focus on ergonomics and HCI.",
     },
     email: "zjian115@asu.edu",
     cv: "",

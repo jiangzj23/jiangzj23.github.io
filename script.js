@@ -119,6 +119,18 @@ function renderPublicationMedia(publication) {
   return '<div class="publication-media-placeholder"><span>Teaser / Video / Slides</span></div>';
 }
 
+function renderRecentWork() {
+  const list = $("#home-work-list");
+  if (!list) return;
+  list.innerHTML = SITE_CONTENT.publications.slice(0, 2)
+    .map((publication, index) => `
+      <article class="home-work-item">
+        <h3><a href="work.html#publication-${index}">${escapeHtml(publication.title)}</a></h3>
+        <p>${escapeHtml(publication.venue)}</p>
+      </article>`)
+    .join("");
+}
+
 function renderPublications() {
   const list = $("#publication-list");
   if (!list) return;
@@ -164,7 +176,7 @@ function renderPublications() {
         : "";
       const media = renderPublicationMedia(publication);
       return `
-        <article class="publication-item reveal">
+        <article class="publication-item reveal" id="publication-${index}">
           <figure class="publication-media">${media}</figure>
           <div class="publication-main">
             <h2>${escapeHtml(publication.title)}</h2>
@@ -226,7 +238,9 @@ function renderNews() {
       '<li class="empty-state reveal">Updates will be added here.</li>';
     return;
   }
-  list.innerHTML = SITE_CONTENT.news
+  const isHome = document.body.classList.contains("home-page");
+  const news = isHome ? SITE_CONTENT.news.slice(0, 3) : SITE_CONTENT.news;
+  list.innerHTML = news
     .map((item) => {
       const papers = (item.papers || [])
         .map((paper) => {
@@ -247,7 +261,7 @@ function renderNews() {
             </li>`;
         })
         .join("");
-      const paperList = papers
+      const paperList = papers && !isHome
         ? `<ol class="news-papers">${papers}</ol>`
         : "";
       return `
@@ -322,6 +336,7 @@ function setupTheme() {
 }
 
 renderProfile();
+renderRecentWork();
 renderPublications();
 renderProjects();
 renderNews();

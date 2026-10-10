@@ -173,7 +173,13 @@ function renderPublicationList(list, publications, prefix = "publication", headi
         ? `<p class="publication-award">${escapeHtml(publication.award)}</p>`
         : "";
       const media = renderPublicationMedia(publication);
-      const eventDetails = [publication.year, publication.location]
+      const publicationYear = publication.publicationYear ?? publication.year;
+      const venueDetails = [
+        publicationYear,
+        publication.track,
+        publication.status,
+      ].filter(Boolean).map(escapeHtml).join(" · ");
+      const eventDetails = [publication.conference, publication.location]
         .filter(Boolean)
         .map(escapeHtml)
         .join(" · ");
@@ -183,7 +189,7 @@ function renderPublicationList(list, publications, prefix = "publication", headi
           <div class="publication-main">
             <${heading} class="publication-title">${escapeHtml(publication.title)}</${heading}>
             <p class="publication-authors">${authors}</p>
-            <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em></p>
+            <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em>${venueDetails ? ` · ${venueDetails}` : ""}</p>
             <p class="publication-event">${eventDetails}</p>
             ${award}
             <div class="publication-links">${abstractButton}${links}</div>

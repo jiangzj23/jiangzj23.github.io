@@ -55,40 +55,34 @@
       </div>
     </header>
 
-    <main class="single-page-main" id="main-content">
-      <section class="hero container">
+    <main class="single-page-main home-layout container" id="main-content">
+      <aside class="home-profile" aria-label="Profile and links">
+        <div class="portrait-wrap" aria-label="Profile artwork">
+          <div class="portrait-frame">
+            <img id="profile-image" alt="Cactus illustration" hidden />
+            <span class="portrait-initials" id="portrait-initials" aria-hidden="true">ZJ</span>
+          </div>
+        </div>
+        <p class="home-profile-name">Zhuojun Jiang</p>
+        <p class="home-profile-role">Computer Science PhD student<br />Arizona State University</p>
+        <p class="home-profile-location" id="profile-location">Tempe, Arizona</p>
+        <div class="home-profile-links">
+          <div class="social-links" id="social-links" aria-label="Professional profiles"></div>
+          <a class="home-cv-link" id="cv-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open academic CV (PDF)" title="Academic CV (PDF)" hidden>
+            <img src="assets/logo/icon-cv.png" alt="" />
+          </a>
+        </div>
+      </aside>
+
+      <div class="home-content">
+      <section class="hero">
         <div class="hero-copy reveal">
           <h1>Hi, I’m <em>Zhuojun</em></h1>
           <p class="hero-intro" id="profile-bio"></p>
-          <div class="hero-actions">
-            <a class="button button-text" id="cv-link" href="#" hidden
-              >CV <span aria-hidden="true">↗</span></a
-            >
-          </div>
-          <div
-            class="social-links"
-            id="social-links"
-            aria-label="Professional profiles"
-          ></div>
-        </div>
-        <div class="portrait-wrap reveal" aria-label="Profile portrait">
-          <div class="portrait-frame">
-            <img id="profile-image" alt="Portrait of Zhuojun Jiang" hidden />
-            <span
-              class="portrait-initials"
-              id="portrait-initials"
-              aria-hidden="true"
-              >ZJ</span
-            >
-          </div>
-          <div class="portrait-caption">
-            <span class="status-dot" aria-hidden="true"></span
-            ><span id="profile-location">Tempe, Arizona</span>
-          </div>
         </div>
       </section>
 
-      <section class="home-recent-work container" aria-labelledby="recent-work-heading">
+      <section class="home-recent-work" aria-labelledby="recent-work-heading">
         <header class="home-section-heading">
           <h2 id="recent-work-heading">Recent Work</h2>
           <a href="work.html">All work →</a>
@@ -97,13 +91,14 @@
       </section>
 
       <section class="home-updates" aria-labelledby="updates-heading">
-        <div class="container home-updates-layout">
+        <div class="home-updates-layout">
           <header class="home-updates-heading">
             <h2 id="updates-heading">Updates</h2>
           </header>
           <ol class="news-list" id="news-list"></ol>
         </div>
       </section>
+      </div>
     </main>
 
     <footer class="site-footer">

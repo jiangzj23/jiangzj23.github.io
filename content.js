@@ -15,7 +15,7 @@ const SITE_CONTENT = {
         "I study how human judgment, creativity, and AI interact in data visualization. My background is in industrial and mechanical engineering, with a focus on ergonomics and HCI.",
     },
     email: "zjian115@asu.edu",
-    cv: "",
+    cv: "assets/pdf/Academic_CV.pdf",
     image: "assets/avatar/cactus-tint-circle.png",
   },
 

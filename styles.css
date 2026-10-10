@@ -923,37 +923,78 @@ h2 {
   }
 }
 
+.home-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 80px);
+  padding-block: 48px 60px;
+  align-items: start;
+}
+.home-profile {
+  position: sticky;
+  top: 110px;
+}
+.home-content {
+  min-width: 0;
+}
+.home-profile-name {
+  margin: 18px 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.home-profile-role,
+.home-profile-location {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+.home-profile-role {
+  margin-bottom: 12px;
+}
+.home-profile-location {
+  margin-bottom: 18px;
+}
+.home-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.home-cv-link:not([hidden]) {
+  display: block;
+  width: 34px;
+  height: 34px;
+  opacity: 0.72;
+}
+.home-cv-link:hover {
+  opacity: 1;
+}
+.home-cv-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .home-page .hero {
-  grid-template-columns: minmax(0, 1fr) 190px;
-  gap: 48px;
+  display: block;
   min-height: auto;
-  padding-block: 58px 40px;
+  padding-block: 0 28px;
 }
 .home-page .hero h1 {
-  margin-bottom: 20px;
-  font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
 .home-page .hero-intro {
   max-width: 700px;
-  margin-bottom: 22px;
+  margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.65;
 }
-.home-page .hero-actions:has(#cv-link[hidden]) {
-  display: none;
-}
-.home-page .hero-actions {
-  margin-bottom: 18px;
-}
 .home-page .portrait-wrap {
-  width: 190px;
-}
-.home-page .portrait-caption {
-  margin-top: 8px;
-  font-size: 0.75rem;
+  width: 180px;
 }
 .home-recent-work {
-  padding-block: 28px 40px;
+  padding-block: 24px 28px;
   border-top: 1px solid var(--line);
 }
 .home-section-heading {
@@ -976,8 +1017,8 @@ h2 {
 }
 .home-work-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 .home-work-item h3 {
   margin-bottom: 8px;
@@ -999,7 +1040,9 @@ h2 {
   font-size: 0.85rem;
 }
 .home-page .home-updates {
-  padding-block: 32px 40px;
+  padding-block: 24px 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
 }
 .home-page .home-updates-layout {
   grid-template-columns: 1fr;
@@ -1012,14 +1055,28 @@ h2 {
 .publication-item {
   scroll-margin-top: 100px;
 }
-@media (max-width: 580px) {
-  .home-page .hero {
+@media (max-width: 760px) {
+  .home-layout {
     grid-template-columns: 1fr;
-    gap: 22px;
-    padding-block: 36px 30px;
+    gap: 32px;
+    padding-block: 30px 40px;
+  }
+  .home-profile {
+    position: static;
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
   }
   .home-page .portrait-wrap {
-    display: none;
+    width: 90px;
+    grid-row: span 4;
+  }
+  .home-profile-name {
+    margin-top: 0;
+  }
+  .home-profile-location {
+    margin-bottom: 12px;
   }
   .home-work-list {
     grid-template-columns: 1fr;

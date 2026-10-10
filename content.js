@@ -204,6 +204,10 @@ const SITE_CONTENT = {
         },
       ],
     },
+    {
+      date: "Jul 13, 2026",
+      text: "Completed my quest to visit every Disney resort around the world, with Disneyland Paris as the final stop! 🏰",
+    },
   ],
 
   // Life can contain personal notes, photos, observations, or unfinished thoughts.

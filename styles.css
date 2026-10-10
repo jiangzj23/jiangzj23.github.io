@@ -504,7 +504,7 @@ h2 {
   text-decoration: none;
   text-transform: uppercase;
 }
-.publication-item h2 {
+.publication-item .publication-title {
   max-width: 720px;
   margin-bottom: 8px;
   font-family: var(--sans);
@@ -516,7 +516,8 @@ h2 {
   min-width: 0;
 }
 .publication-authors,
-.publication-venue {
+.publication-venue,
+.publication-event {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.9rem;
@@ -1016,9 +1017,28 @@ h2 {
   text-decoration: none;
 }
 .home-work-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  display: block;
+}
+.home-work-list .publication-item {
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 22px;
+}
+.home-work-list .publication-item:first-child {
+  padding-top: 0;
+}
+.home-work-list .publication-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.home-work-list .publication-title {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.home-work-list .publication-authors,
+.home-work-list .publication-venue,
+.home-work-list .publication-event {
+  font-size: 0.82rem;
 }
 .home-work-item h3 {
   margin-bottom: 8px;
@@ -1078,7 +1098,7 @@ h2 {
   .home-profile-location {
     margin-bottom: 12px;
   }
-  .home-work-list {
+  .home-work-list .publication-item {
     grid-template-columns: 1fr;
     gap: 22px;
   }

@@ -66,6 +66,7 @@ const SITE_CONTENT = {
         "Harnessing LLMs Without Surrendering Control: Delegation Boundaries in Visual Data Storytelling Authoring",
       authors: ["Zhuojun Jiang", "Yuki Ueno", "Chris Bryan"],
       venue: "IEEE Visualization Conference",
+      location: "Boston, MA, USA",
       abstract:
         'Despite the emergence of large language models (LLMs) for visual data storytelling workflows, there are open questions about how authors decide what activities or tasks to entrust to them and what should be "protected" or maintained under human control. To investigate this, we interviewed a cohort of 12 expert visual data storytellers. Our analysis shows that participants rarely treated LLMs as autonomous storytellers. Instead, they tend to selectively delegate execution-oriented tasks to LLMs while retaining control over activities that shape narrative intent and story meaning. Our findings show that LLM assistance is most productive after human seeding and constraint-setting, and that it shifts labor from production to verification. We discuss design implications for boundary-aware authoring tools, data-grounded generation, low-fidelity ideation, and reporting practices for LLM-based visualization research.',
       links: [
@@ -82,6 +83,7 @@ const SITE_CONTENT = {
         "VisCanvas: A Node-based Interface for Exploratory Visualization Authoring with LLMs",
       authors: ["Yuki Ueno", "Bretho Danzy", "Zhuojun Jiang", "Chris Bryan"],
       venue: "IEEE Visualization Conference",
+      location: "Boston, MA, USA",
       abstract:
         "Visual data analysis involves both open-ended exploration and targeted question answering. Visualization authoring tools support this process by enabling users to create visualizations for these tasks. With the rise of large language models, substantial effort has been devoted to developing visualization authoring tools that use natural language instructions. However, existing systems are typically based on a linear chat interface, which is not well suited to exploratory visual analysis workflows. We introduce VisCanvas, a node-based interface for exploratory visualization authoring with LLMs. VisCanvas allows users to create, revise, branch, and merge visualizations in a non-linear way, enabling more efficient exploration of multiple analytical directions. A user study with 20 participants shows that VisCanvas facilitates more diverse data interaction while maintaining performance levels in cognitive load and usability that are indistinguishable from current prevailing methods.",
       links: [
@@ -98,6 +100,7 @@ const SITE_CONTENT = {
         "The Hue-Man Factor: An Empirical Evaluation of Visualization Perception and Accessibility Across Color Vision Profiles",
       authors: ["Zhuojun Jiang", "Anjana Arunkumar", "Chris Bryan"],
       venue: "IEEE Visualization Conference",
+      location: "Vienna, Austria",
       abstract:
         "Color is a powerful tool in data visualization, but for individuals with color vision deficiencies (CVD), hue can become a barrier rather than an aid. Factor analysis reveals two dominant perceptual dimensions: functional utility and affective experience. While normal vision participants prioritize functional clarity, CVD users rely more on structural cues and emotional resonance, particularly when color is unreliable. Qualitative insights show that perceptual breakdowns occur not only in high-interference charts but also when redundant encoding or layout scaffolding is missing. We synthesize these findings and offer empirically grounded design recommendations to guide inclusive visualization practices. Our results argue that accessibility must go beyond color correction, embracing structural clarity, redundancy, and real-user validation to ensure inclusive visual communication.",
       links: [
@@ -125,6 +128,7 @@ const SITE_CONTENT = {
         "Chris Bryan",
       ],
       venue: "IEEE Pacific Visualization Conference Visual Storytelling Contest",
+      location: "Taipei, Taiwan",
       award: "Oral Presentation · Honorable Mention",
       abstract:
         "This interactive visual data story introduces Wagyu through its four Japanese cattle breeds, more than 320 regional brands, export growth, grading systems, and cultural significance. Combining interactive maps, charts, illustrations, and a personal narrative centered on Kobe beef, the story explains what distinguishes Wagyu and how Japan’s regional production traditions have reached a global audience.",
@@ -150,6 +154,7 @@ const SITE_CONTENT = {
         "Takao Fukui",
       ],
       venue: "Proceedings of the Japanese Society for Cognitive Psychology",
+      location: "Hachioji, Tokyo, Japan",
       award: "Oral Presentation",
       abstract:
         "This study examined how familiarity and mask wearing affect self-other judgments in face recognition. Participants completed four experimental sessions using morphed images that combined their own face with either a friend’s or an unfamiliar person’s face, with and without masks. Fifteen morphing levels were used to estimate the point at which self-other judgments reached chance level. The threshold tended to be lower for self-friend morphs than for self-unknown morphs, suggesting that familiarity may influence how facial representations of the self and others overlap.",

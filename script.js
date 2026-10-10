@@ -122,25 +122,23 @@ function renderPublicationMedia(publication) {
 function renderRecentWork() {
   const list = $("#home-work-list");
   if (!list) return;
-  list.innerHTML = SITE_CONTENT.publications.slice(0, 2)
-    .map((publication, index) => `
-      <article class="home-work-item">
-        <h3><a href="work.html#publication-${index}">${escapeHtml(publication.title)}</a></h3>
-        <p>${escapeHtml(publication.venue)}</p>
-      </article>`)
-    .join("");
+  renderPublicationList(list, SITE_CONTENT.publications.slice(0, 2), "selected", "h3");
 }
 
 function renderPublications() {
   const list = $("#publication-list");
   if (!list) return;
-  if (!SITE_CONTENT.publications.length) {
+  renderPublicationList(list, SITE_CONTENT.publications);
+}
+
+function renderPublicationList(list, publications, prefix = "publication", heading = "h2") {
+  if (!publications.length) {
     list.innerHTML =
       '<p class="empty-state reveal">Publications will be added here.</p>';
     return;
   }
 
-  list.innerHTML = SITE_CONTENT.publications
+  list.innerHTML = publications
     .map((publication, index) => {
       const authors = publication.authors
         .map((author, authorIndex) => {
@@ -164,7 +162,7 @@ function renderPublications() {
             `<a href="${escapeHtml(safeUrl(link.url))}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
         )
         .join("");
-      const abstractId = `publication-abstract-${index}`;
+      const abstractId = `${prefix}-abstract-${index}`;
       const abstractButton = publication.abstract
         ? `<button class="publication-abstract-toggle" type="button" aria-expanded="false" aria-controls="${abstractId}">+ Abstract</button>`
         : "";
@@ -175,13 +173,18 @@ function renderPublications() {
         ? `<p class="publication-award">${escapeHtml(publication.award)}</p>`
         : "";
       const media = renderPublicationMedia(publication);
+      const eventDetails = [publication.year, publication.location]
+        .filter(Boolean)
+        .map(escapeHtml)
+        .join(" · ");
       return `
-        <article class="publication-item reveal" id="publication-${index}">
+        <article class="publication-item reveal" id="${prefix}-${index}">
           <figure class="publication-media">${media}</figure>
           <div class="publication-main">
-            <h2>${escapeHtml(publication.title)}</h2>
+            <${heading} class="publication-title">${escapeHtml(publication.title)}</${heading}>
             <p class="publication-authors">${authors}</p>
             <p class="publication-venue"><em>${escapeHtml(publication.venue)}</em></p>
+            <p class="publication-event">${eventDetails}</p>
             ${award}
             <div class="publication-links">${abstractButton}${links}</div>
             ${abstract}

@@ -486,7 +486,9 @@ h2 {
   width: 100%;
   height: 100%;
 }
-.publication-media img,
+.publication-media img {
+  object-fit: contain;
+}
 .publication-media video {
   object-fit: cover;
 }

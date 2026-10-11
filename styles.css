@@ -928,8 +928,9 @@ h2 {
 
 .home-layout {
   display: grid;
+  max-width: 880px;
   grid-template-columns: 190px minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 56px);
+  gap: clamp(28px, 4vw, 44px);
   padding-block: 48px 60px;
   align-items: start;
 }
@@ -988,7 +989,7 @@ h2 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
 .home-page .hero-intro {
-  max-width: 700px;
+  max-width: 60ch;
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.65;

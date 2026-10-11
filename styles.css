@@ -930,7 +930,7 @@ h2 {
   display: grid;
   max-width: 880px;
   grid-template-columns: 190px minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 44px);
+  gap: clamp(36px, 5vw, 64px);
   padding-block: 48px 60px;
   align-items: start;
 }

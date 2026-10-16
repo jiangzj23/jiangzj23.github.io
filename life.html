@@ -10,10 +10,7 @@
     <title>Life · Zhuojun Jiang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
@@ -41,31 +38,30 @@
           <a href="index.html">About</a><a href="work.html">Work</a>
           <a href="life.html" aria-current="page">Life</a
           ><a href="connect.html">Connect</a>
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle color theme"
-          >
-            <span aria-hidden="true">◐</span>
-          </button>
+          <details class="language-switcher">
+            <summary aria-label="Language / 语言 / 言語">EN<span aria-hidden="true">⌄</span></summary>
+            <div class="language-options">
+            <a href="index.html" lang="en" hreflang="en" aria-current="true">English</a>
+            <a href="zh.html" lang="zh" hreflang="zh">中文</a>
+            <a href="ja.html" lang="ja" hreflang="ja">日本語</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>
 
-    <main class="single-page-main page-tinted" id="main-content">
+    <main class="single-page-main" id="main-content">
       <section class="page-section container life-page">
         <header class="page-heading reveal">
-          <p class="page-kicker">Life</p>
           <h1 class="image-title">
             <img
               class="title-image title-image-life"
-              src="assets/titles/lifesub1.png"
+              src="assets/titles/lifesub3.png"
               alt="Beyond research."
             />
           </h1>
           <p>
-            A place for everyday moments, things I notice, and ideas that do not
-            need to become a paper.
+            A little adventure, a lot of memories
           </p>
         </header>
         <div class="life-grid" id="life-grid"></div>

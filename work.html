@@ -10,10 +10,7 @@
     <title>Work · Zhuojun Jiang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
@@ -41,52 +38,57 @@
           <a href="index.html">About</a
           ><a href="work.html" aria-current="page">Work</a>
           <a href="life.html">Life</a><a href="connect.html">Connect</a>
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle color theme"
-          >
-            <span aria-hidden="true">◐</span>
-          </button>
+          <details class="language-switcher">
+            <summary aria-label="Language / 语言 / 言語">EN<span aria-hidden="true">⌄</span></summary>
+            <div class="language-options">
+            <a href="index.html" lang="en" hreflang="en" aria-current="true">English</a>
+            <a href="zh.html" lang="zh" hreflang="zh">中文</a>
+            <a href="ja.html" lang="ja" hreflang="ja">日本語</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>
 
     <main class="single-page-main" id="main-content">
       <header class="work-hero container">
-        <p class="page-kicker">Work</p>
         <h1 class="image-title">
           <img
             class="title-image title-image-work"
-            src="assets/titles/worksub1.png"
+            src="assets/titles/worksub3.png"
             alt="Research, ideas, and things I build."
           />
         </h1>
         <p>
-          My academic work explores questions in data visualization,
-          human–computer interaction, and accessible visual computing through
-          publications and projects that put these ideas into practice.
+          A work in progress, always
         </p>
       </header>
 
       <section class="work-section" id="publications">
         <div class="container">
           <header class="work-section-heading">
-            <p class="section-number">01</p>
             <div>
-              <p class="eyebrow">Publications</p>
+              <h2>Publications</h2>
             </div>
           </header>
           <div class="publication-list" id="publication-list"></div>
         </div>
       </section>
 
+      <section class="work-section" id="skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <header class="work-section-heading">
+            <h2 id="skills-heading">Skills</h2>
+          </header>
+          <div class="skills-content" id="skills-content"></div>
+        </div>
+      </section>
+
       <section class="work-section page-tinted" id="projects">
         <div class="container">
           <header class="work-section-heading">
-            <p class="section-number">02</p>
             <div>
-              <p class="eyebrow">Projects</p>
+              <h2>Projects</h2>
             </div>
           </header>
           <div class="project-grid" id="project-grid"></div>

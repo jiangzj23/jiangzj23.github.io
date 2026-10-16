@@ -7,10 +7,7 @@
     <title>Connect · Zhuojun Jiang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
@@ -38,33 +35,34 @@
           <a href="index.html">About</a><a href="work.html">Work</a>
           <a href="life.html">Life</a
           ><a href="connect.html" aria-current="page">Connect</a>
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle color theme"
-          >
-            <span aria-hidden="true">◐</span>
-          </button>
+          <details class="language-switcher">
+            <summary aria-label="Language / 语言 / 言語">EN<span aria-hidden="true">⌄</span></summary>
+            <div class="language-options">
+            <a href="index.html" lang="en" hreflang="en" aria-current="true">English</a>
+            <a href="zh.html" lang="zh" hreflang="zh">中文</a>
+            <a href="ja.html" lang="ja" hreflang="ja">日本語</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>
 
     <main class="contact-page" id="main-content">
       <section class="container contact-page-inner reveal">
-        <p class="eyebrow">Connect</p>
-        <h1>Let’s start a<br />conversation.</h1>
+        <div class="connect-greeting">
+          <h1><img src="assets/logo/connect.png" alt="Let’s connect!" /></h1>
+        </div>
         <p>
-          I am always glad to hear about thoughtful questions, new ideas, and
-          opportunities to collaborate.
+          Ideas, questions, or just a hello
         </p>
-        <a class="button button-light" id="email-link" href="#"
-          >Send an email</a
-        >
-        <div
-          class="social-links contact-socials"
-          id="social-links"
-          aria-label="Professional profiles"
-        ></div>
+        <div class="connect-contact-links" role="group" aria-label="Contact options">
+          <a id="email-link" href="mailto:zjian115@asu.edu" aria-label="Send an email" title="Send an email">
+            <img src="assets/logo/icon-gmail1.png" alt="" />
+          </a>
+          <a id="linkedin-link" href="https://www.linkedin.com/in/zhuojun-jiang-394127294/" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" title="LinkedIn">
+            <img src="assets/logo/icon-linkedin1.png" alt="" />
+          </a>
+        </div>
       </section>
     </main>
   </body>

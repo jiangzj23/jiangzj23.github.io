@@ -11,10 +11,7 @@
     <title>Zhuojun Jiang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="content.js" defer></script>
     <script src="script.js" defer></script>
@@ -44,13 +41,14 @@
           <a href="work.html">Work</a>
           <a href="life.html">Life</a>
           <a href="connect.html">Connect</a>
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle color theme"
-          >
-            <span aria-hidden="true">◐</span>
-          </button>
+          <details class="language-switcher">
+            <summary aria-label="Language / 语言 / 言語">EN<span aria-hidden="true">⌄</span></summary>
+            <div class="language-options">
+            <a href="index.html" lang="en" hreflang="en" aria-current="true">English</a>
+            <a href="zh.html" lang="zh" hreflang="zh">中文</a>
+            <a href="ja.html" lang="ja" hreflang="ja">日本語</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>
@@ -59,12 +57,10 @@
       <aside class="home-profile" aria-label="Profile and links">
         <div class="portrait-wrap" aria-label="Profile artwork">
           <div class="portrait-frame">
-            <img id="profile-image" alt="Cactus illustration" hidden />
+            <img id="profile-image" alt="Portrait of Zhuojun Jiang" hidden />
             <span class="portrait-initials" id="portrait-initials" aria-hidden="true">ZJ</span>
           </div>
         </div>
-        <p class="home-profile-name">Zhuojun Jiang</p>
-        <p class="home-profile-role">Computer Science PhD student<br />Arizona State University</p>
         <p class="home-profile-location" id="profile-location">Tempe, Arizona</p>
         <div class="home-profile-links">
           <div class="social-links" id="social-links" aria-label="Professional profiles"></div>
@@ -77,8 +73,8 @@
       <div class="home-content">
       <section class="hero">
         <div class="hero-copy reveal">
-          <h1>Hi, I’m <em>Zhuojun</em></h1>
-          <p class="hero-intro" id="profile-bio"></p>
+          <h1 class="home-greeting"><img src="assets/logo/hi_zj.png" alt="Hi, I’m Zhuojun" /></h1>
+          <div class="hero-intro" id="profile-bio"></div>
         </div>
       </section>
 
@@ -97,6 +93,12 @@
           <a href="work.html#publications">All publications →</a>
         </header>
         <div class="home-work-list" id="home-work-list"></div>
+      </section>
+      <section class="home-academic-service" aria-labelledby="academic-service-heading">
+        <header class="home-section-heading">
+          <h2 id="academic-service-heading">Academic Service</h2>
+        </header>
+        <dl class="academic-service-list" id="academic-service-list"></dl>
       </section>
       </div>
     </main>

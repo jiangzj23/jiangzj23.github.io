@@ -514,6 +514,46 @@ function renderLife() {
   });
 }
 
+function setupVisitorMap() {
+  const settings = SITE_CONTENT.visitorMap;
+  const status = $("#visitor-map-status");
+  const localPreview = window.location.protocol === "file:" ||
+    ["localhost", "127.0.0.1", "::1", "[::1]"].includes(window.location.hostname);
+  if (!settings?.enabled || localPreview) {
+    if (status) status.textContent = localPreview
+      ? "Visitor map is disabled in local preview."
+      : "Visitor map is currently disabled.";
+    return;
+  }
+  if (document.getElementById("mapmyvisitors")) return;
+  // Only load this provider's map script, never arbitrary configurable code.
+  const src = safeUrl(settings.scriptUrl);
+  if (!/^https:\/\/mapmyvisitors\.com\/map\.js\?/.test(src)) {
+    if (status) status.textContent = "Visitor map configuration is unavailable.";
+    return;
+  }
+  let host = $("#visitor-map");
+  if (!host) {
+    host = document.createElement("div");
+    host.className = "visitor-tracker-background";
+    host.hidden = true;
+    document.body.appendChild(host);
+  }
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.id = "mapmyvisitors";
+  script.src = src;
+  script.async = true;
+  script.onload = () => { if (status) status.hidden = true; };
+  script.onerror = () => {
+    if (status) {
+      status.hidden = false;
+      status.textContent = "Visitor map could not load. It may be blocked by your privacy settings.";
+    }
+  };
+  host.appendChild(script);
+}
+
 function setupNavigation() {
   const menuButton = $(".menu-toggle");
   const navigation = $("#site-nav");
@@ -549,6 +589,7 @@ renderAcademicService();
 renderLife();
 setupNavigation();
 setupLanguageSwitcher();
+setupVisitorMap();
 document.querySelectorAll(".current-year").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });

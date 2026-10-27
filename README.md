@@ -11,6 +11,14 @@ A dependency-free academic personal website built with HTML, CSS, and JavaScript
 
 No Ruby, Jekyll, Docker, or npm installation is required.
 
+## Visitor map
+
+MapMyVisitors loads on published pages through the shared `script.js`; only
+Connect displays the map. Localhost and file previews do not load the tracker.
+Set `SITE_CONTENT.visitorMap.enabled` to `false` in `content.js` to disable it
+site-wide. The provider receives visit data and its public statistics pages may
+show regions and visit times. Blocking analytics can prevent collection or display.
+
 ## Editing content
 
 - Personal information, links, publications, projects, and news: `content.js`

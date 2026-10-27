@@ -1,5 +1,10 @@
 // Edit this file to update the website. Saving it will refresh Live Server.
 const SITE_CONTENT = {
+  // Third-party visitor statistics. Set enabled to false to disable site-wide.
+  visitorMap: {
+    enabled: true,
+    scriptUrl: "https://mapmyvisitors.com/map.js?d=EOm_N2ZjnbB8919L8vuw584cLSyVtKusiRpjji0I2vA&co=fcfcf9&cl=c8d5ce&cmn=66706c&cmo=b8896b&ct=66706c&w=a&t=n",
+  },
   profile: {
     name: "Zhuojun Jiang",
     initials: "ZJ",
@@ -557,7 +562,7 @@ const SITE_CONTENT = {
       ],
     },
     {
-      title: "Chongqing, My Hometown",
+      title: "重庆 Chongqing, My Hometown",
       credit: {
         text: "Video by",
         creator: "LaLin Photography",

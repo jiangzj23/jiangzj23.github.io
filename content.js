@@ -27,7 +27,7 @@ const SITE_CONTENT = {
         "My background in industrial and mechanical engineering, with a focus on ergonomics and HCI, informs my approach to understanding people and designing tools that support their thinking and creativity.",
     },
     email: "zjian115@asu.edu",
-    cv: "assets/pdf/CV27.pdf",
+    cv: "assets/pdf/CV27.pdf?v=20261102",
     image: "assets/avatar/zhuojun.png",
   },
 

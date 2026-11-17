@@ -279,6 +279,20 @@ const SITE_CONTENT = {
 
   news: [
     {
+      date: "Nov 14, 2026",
+      text: "A wonderful week in Boston. See you at the next VIS!",
+    },
+    {
+      date: "Nov 8, 2026",
+      text: "Shared my work at the VIS Doctoral Colloquium. Grateful for fresh perspectives from the panelists and PhD friends!",
+      photo: {
+        text: "Doctoral Colloquium",
+        type: "drive",
+        src: "https://drive.google.com/file/d/19WbeGdWPLC8c58k9w2rv0DwT3kN1f90B/preview",
+        alt: "VIS Doctoral Colloquium · IEEE VIS 2026",
+      },
+    },
+    {
       date: "Jul 17, 2026",
       text: "Two papers accepted to IEEE VIS 2026. See you in Boston! 🍩 🎉",
       papers: [
@@ -330,19 +344,6 @@ const SITE_CONTENT = {
   // Add more media entries for left/right navigation. Empty src keeps a placeholder.
   life: [
     {
-      title: "PacificVis 2025",
-      text: "",
-      date: "2025",
-      location: "Taipei, Taiwan",
-      media: [
-        {
-          type: "drive",
-          src: "https://drive.google.com/file/d/11Qt9qPGchGSVbuBfgerrUe5AsPlibu8g/preview",
-          alt: "PacificVis 2025 conference photo",
-        },
-      ],
-    },
-    {
       title: "IEEE VIS 2025",
       text: "",
       date: "2025",
@@ -356,11 +357,45 @@ const SITE_CONTENT = {
       ],
     },
     {
+      title: "PacificVis 2025",
+      text: "",
+      date: "2025",
+      location: "Taipei, Taiwan",
+      media: [
+        {
+          type: "drive",
+          src: "https://drive.google.com/file/d/11Qt9qPGchGSVbuBfgerrUe5AsPlibu8g/preview",
+          alt: "PacificVis 2025 conference photo",
+        },
+      ],
+    },
+    {
       title: "IEEE VIS 2026",
       text: "",
       date: "2026",
       location: "Boston, MA, USA",
-      media: [{ type: "image", src: "", alt: "IEEE VIS 2026 conference photo" }],
+      media: [
+        {
+          type: "drive",
+          src: "https://drive.google.com/file/d/19WbeGdWPLC8c58k9w2rv0DwT3kN1f90B/preview",
+          alt: "IEEE VIS 2026 conference photo 1",
+        },
+        {
+          type: "drive",
+          src: "https://drive.google.com/file/d/1stXAEgnB7eAovqIX8gm6em3gs3DXf5BI/preview",
+          alt: "IEEE VIS 2026 conference photo 2",
+        },
+        {
+          type: "drive",
+          src: "https://drive.google.com/file/d/1CdLutPgnCgxjmdW8-GHntnle0Ucw1d46/preview",
+          alt: "IEEE VIS 2026 conference photo 3",
+        },
+        {
+          type: "drive",
+          src: "https://drive.google.com/file/d/1OfHYdg5ozXryTYIxC4pibxL3dIZz46mi/preview",
+          alt: "IEEE VIS 2026 conference photo 4",
+        },
+      ],
     },
     {
       title: "Snowboarding",

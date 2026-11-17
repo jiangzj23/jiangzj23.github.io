@@ -363,9 +363,9 @@ function renderNews() {
     return;
   }
   const isHome = document.body.classList.contains("home-page");
-  const news = isHome ? SITE_CONTENT.news.slice(0, 3) : SITE_CONTENT.news;
+  const news = SITE_CONTENT.news;
   list.innerHTML = news
-    .map((item) => {
+    .map((item, index) => {
       const papers = (item.papers || [])
         .map((paper) => {
           const authors = paper.authors.map((author, index) => {
@@ -397,7 +397,12 @@ function renderNews() {
       const insertionIndex = beforeIndex >= 0 ? beforeIndex : markerIndex >= 0
         ? markerIndex + item.imageAfter.length
         : item.text.length;
-      const newsText = `${escapeHtml(item.text.slice(0, insertionIndex))}${newsImage}${newsImage && beforeIndex >= 0 ? " " : ""}${escapeHtml(item.text.slice(insertionIndex))}`;
+      let newsText = `${escapeHtml(item.text.slice(0, insertionIndex))}${newsImage}${newsImage && beforeIndex >= 0 ? " " : ""}${escapeHtml(item.text.slice(insertionIndex))}`;
+      const photoUrl = safeUrl(item.photo?.src);
+      if (photoUrl && item.photo.text) {
+        const label = escapeHtml(item.photo.text);
+        newsText = newsText.replace(label, `<a class="news-photo-link" href="${escapeHtml(photoUrl)}" target="_blank" rel="noopener noreferrer" data-news-photo="${index}" aria-haspopup="dialog">${label}</a>`);
+      }
       return `
         <li class="news-item reveal">
           <time class="news-date">${escapeHtml(item.date)}</time>
@@ -408,6 +413,32 @@ function renderNews() {
         </li>`;
     })
     .join("");
+  list.onclick = (event) => {
+    const trigger = event.target.closest("[data-news-photo]");
+    if (!trigger || !list.contains(trigger) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const photo = news[Number(trigger.dataset.newsPhoto)]?.photo;
+    if (!photo || !safeUrl(photo.src)) return;
+    const dialog = document.createElement("dialog");
+    if (typeof dialog.showModal !== "function") return;
+    event.preventDefault();
+    dialog.className = "news-photo-dialog";
+    dialog.setAttribute("aria-labelledby", "news-photo-title");
+    dialog.innerHTML = `<header class="news-photo-header"><h2 id="news-photo-title">${escapeHtml(photo.alt || photo.text)}</h2><form method="dialog"><button type="submit" aria-label="Close photo" autofocus>×</button></form></header><div class="news-photo-stage">${renderLifeMedia(photo, photo.text)}</div>`;
+    const previousOverflow = document.body.style.overflow;
+    dialog.addEventListener("close", () => {
+      document.body.style.overflow = previousOverflow;
+      dialog.remove();
+      trigger.focus({ preventScroll: true });
+    }, { once: true });
+    dialog.addEventListener("click", (click) => {
+      if (click.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (click.clientX < rect.left || click.clientX > rect.right || click.clientY < rect.top || click.clientY > rect.bottom) dialog.close();
+    });
+    document.body.appendChild(dialog);
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+  };
 }
 
 function lifeMediaItems(item) {
@@ -445,6 +476,28 @@ function renderAcademicService() {
     .join("");
 }
 
+function lifeDisplayOrder(items) {
+  const yearOf = (item) => {
+    const years = String(item.date || "").match(/\b(?:19|20)\d{2}\b/g);
+    return years ? Math.max(...years.map(Number)) : -Infinity;
+  };
+  const ordered = [];
+  // Preserve each three-card topic group; only reorder within the desktop row.
+  for (let start = 0; start < items.length; start += 3) {
+    const row = items.slice(start, start + 3).map((item, offset) => ({
+      item,
+      index: start + offset,
+    }));
+    row.sort((a, b) => {
+      const aYear = yearOf(a.item);
+      const bYear = yearOf(b.item);
+      return aYear === bYear ? a.index - b.index : bYear - aYear;
+    });
+    ordered.push(...row);
+  }
+  return ordered;
+}
+
 function renderLife() {
   const grid = $("#life-grid");
   if (!grid) return;
@@ -454,8 +507,8 @@ function renderLife() {
     return;
   }
 
-  grid.innerHTML = SITE_CONTENT.life
-    .map((item, index) => {
+  grid.innerHTML = lifeDisplayOrder(SITE_CONTENT.life)
+    .map(({ item, index }) => {
       const media = lifeMediaItems(item);
       const itemUrl = safeUrl(item.url);
       const controls = media.length > 1
